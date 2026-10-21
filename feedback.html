@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Send feedback or ask for help with WorkBud.">
+  <meta name="referrer" content="no-referrer">
+  <title>WorkBud — Feedback and support</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body><main>
+<nav><a href="index.html">WorkBud</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></nav>
+<p class="brand">WORKBUD</p>
+<h1>Feedback and support</h1>
+<p>Tell us what worked, what was confusing, or what needs fixing. This page opens your email app to send your message directly to WorkBud support; the page does not collect or store your feedback.</p>
+<form id="feedback-form">
+  <label for="topic">What is this about?</label>
+  <select id="topic" name="topic">
+    <option>App feedback</option>
+    <option>Report a technical problem</option>
+    <option>Job or application question</option>
+    <option>Business account question</option>
+    <option>Safety concern</option>
+    <option>Other</option>
+  </select>
+  <label for="message">Your message</label>
+  <textarea id="message" name="message" rows="7" maxlength="4000" required placeholder="Tell us what happened and what you expected."></textarea>
+  <button type="submit">Open email to send</button>
+</form>
+<p>Please do not include passwords, identity documents, bank details, or other sensitive information. For urgent danger, contact local emergency services.</p>
+<p>If the button does not open your email app, write to <a href="mailto:infinitymathelon@gmail.com">infinitymathelon@gmail.com</a>.</p>
+<p>For account removal, visit <a href="account.html">Manage or delete your account</a>. Read our <a href="privacy.html">Privacy Policy</a>.</p>
+<footer><p>WorkBud is operated by Prashant Borkar. Public developer name: Primo.</p></footer>
+</main>
+<script>
+document.getElementById('feedback-form').addEventListener('submit', function (event) {
+  event.preventDefault();
+  const topic = document.getElementById('topic').value;
+  const message = document.getElementById('message').value.trim();
+  if (!message) return;
+  const subject = encodeURIComponent('WorkBud support: ' + topic);
+  const body = encodeURIComponent(message + '\n\n— Sent from WorkBud feedback page');
+  window.location.href = 'mailto:infinitymathelon@gmail.com?subject=' + subject + '&body=' + body;
+});
+</script>
+</body></html>
